@@ -1,37 +1,71 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0px;
+    font-family: "Poppins", sans-serif;
 }
 
-nav{
+nav {
     height: 70px;
     display: flex;
     padding: 20px 36px;
-    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);  
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
 }
 
-.hero{
+h2 {
+    font-size: 0.75rem;
+    font-weight: normal;
+}
+
+.gray {
+    color: #918E9B;
+}
+
+.hero {
     display: flex;
     flex-direction: column;
-    font-family: "Poppins", sans-serif; 
     padding-inline: 15%;
 }
 
-.hero-image{
+.hero-image {
     max-width: 500px;
     align-self: center;
 }
 
-.hero-header{
-margin-top: 20px;
-margin-bottom: 10px;
+.hero-header {
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
-.hero-text{
+.hero-text {
     margin-top: 0px;
     max-width: 320px;
+    /* margin-bottom: 60px; */
+}
+
+.card {
+    font-size: 0.75rem;
+    width: 180px;
+    position: relative;
+    margin: 36px;
+}
+
+.card-image {
+    width: 100%;
+}
+
+.card-status {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+}
+
+.card-details {
+    display: flex;
+    align-self: center;
+    margin-top: 2px;
 }
