@@ -1,15 +1,15 @@
 import './App.css'
-import Hero from './components/Hero'
 import Navbar from './components/Navbar'
-import Card from './components/Card'
+import Hero from './components/Hero'
+import Cardrow from './components/Cardrow'
 
 function App() {
 
   return (
     <>
       <Navbar />
-      {/* <Hero /> */}
-      <Card />
+      <Hero />
+      <Cardrow />
     </>
   )
 }
