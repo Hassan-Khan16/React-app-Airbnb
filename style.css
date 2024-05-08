@@ -69,9 +69,3 @@ h2 {
     align-self: center;
     margin-top: 2px;
 }
-
-.parent-container {
-    display: flex;
-    justify-content: space-between;
-    /* This will position items at the start and end of the container */
-}
