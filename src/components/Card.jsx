@@ -1,5 +1,5 @@
 import React from "react"
-import starImage from "../images/star.png"
+import starImage from "/images/star.png"
 
 function Card(props) {
     let badgeText
@@ -12,7 +12,7 @@ function Card(props) {
     return (
         < div className="card" >
             {badgeText && <div className="card-badge">{badgeText}</div>}
-            <img src={`/src/images/${props.item.coverImg}`} className="card-image" />
+            <img src={`images/${props.item.coverImg}`} className="card-image" />
             <div className="card-details">
                 <img className="card-star" src={starImage} />
                 <span>{props.item.stats.rating}</span>
