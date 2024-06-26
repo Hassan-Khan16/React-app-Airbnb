@@ -1,54 +1,79 @@
-import React, { useState } from 'react';
+import React from "react"
 
-const EventForm = ({ onSubmit }) => {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [price, setPrice] = useState('');
-    const [location, setLocation] = useState('');
-    const [openSpots, setOpenSpots] = useState('');
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        onSubmit({ title, description, price, location, openSpots });
-    };
+function Form(props) {
+    const formData = props.formData
+    const handleSubmit = props.handleSubmit
+    const handleChange = props.handleChange
 
     return (
-        <div class="form-container">
+        <div className="form-container">
             <h1>Add More Cards</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={(e) => handleSubmit(e, formData)}>
                 <input
                     type="text"
                     placeholder="Title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    onChange={handleChange}
+                    name="title"
+                    value={formData.title}
+                    required
                 />
                 <textarea
                     placeholder="Description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
+                    onChange={handleChange}
+                    name="description"
+                    value={formData.description}
+                    required
                 ></textarea>
                 <input
                     type="number"
                     placeholder="Price"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
+                    name="price"
+                    onChange={handleChange}
+                    value={formData.price}
+                    required
+                />
+                <input
+                    type="text"
+                    placeholder="Cover Image"
+                    onChange={handleChange}
+                    name="coverImg"
+                    value={formData.coverImg}
+                    required
+                /><input
+                    type="number"
+                    placeholder="Rating"
+                    onChange={handleChange}
+                    name="rating"
+                    value={formData.rating}
+                    required
+                /><input
+                    type="number"
+                    placeholder="Review Count"
+                    onChange={handleChange}
+                    name="reviewCount"
+                    value={formData.reviewCount}
+                    required
                 />
                 <input
                     type="text"
                     placeholder="Location"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
+                    name="location"
+                    value={formData.location}
+                    onChange={handleChange}
+                    required
                 />
                 <input
                     type="number"
                     placeholder="Open Spots"
-                    value={openSpots}
-                    onChange={(e) => setOpenSpots(e.target.value)}
+                    name="openSpots"
+                    value={formData.openSpots}
+                    onChange={handleChange}
+                    required
                 />
-                <button type="submit">Submit</button>
+                <button type="submit">Add Card</button>
             </form>
         </div>
     );
 };
 
-export default EventForm;
+export default Form;

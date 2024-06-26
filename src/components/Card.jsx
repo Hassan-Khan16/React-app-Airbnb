@@ -15,8 +15,8 @@ function Card(props) {
             <img src={`images/${props.item.coverImg}`} className="card-image" />
             <div className="card-details">
                 <img className="card-star" src={starImage} />
-                <span>{props.item.stats.rating}</span>
-                <span className="gray">({props.item.stats.reviewCount}) - </span>
+                <span>{props.item.rating}</span>
+                <span className="gray">({props.item.reviewCount}) - </span>
                 <span className="gray">{props.item.location}</span>
             </div>
             <h2 className="card-title">{props.item.title}</h2>
