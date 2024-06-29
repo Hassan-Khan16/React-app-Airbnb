@@ -5,6 +5,7 @@ import Card from './components/Card'
 import Form from './components/Form'
 import { onSnapshot, addDoc } from "firebase/firestore"
 import { cardsCollection } from "../firebase"
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App() {
   const [cards, setCards] = React.useState([]);
@@ -56,18 +57,27 @@ function App() {
       />
     )
   })
+
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <section className='card-list'>
-        {cardlist}
-      </section>
-      <Form
-        formData={formData}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit} />
-    </>
+    <Router>
+      <>
+        <Navbar />
+        <Switch>
+          <Route exact path="/React-app-Airbnb/">
+            <Hero />
+            <section className='card-list'>
+              {cardlist}
+            </section>
+          </Route>
+          <Route path="/React-app-Airbnb/create">
+            <Form
+              formData={formData}
+              handleChange={handleChange}
+              handleSubmit={handleSubmit} />
+          </Route>
+        </Switch>
+      </>
+    </Router>
   )
 }
 

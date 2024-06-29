@@ -8,16 +8,28 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
-nav {
+.nav {
     height: 1em;
     display: flex;
     align-items: center;
     box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.2);
     padding: 1.7em 2.4em;
+    justify-content: space-between;
 }
 
 .navbar-image {
     height: 1.5em;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 2rem;
+    font-weight: bold;
+}
+
+.navbar-links>a {
+    color: black;
+    text-decoration: none;
 }
 
 .gray {
