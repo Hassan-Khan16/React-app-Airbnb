@@ -3,12 +3,13 @@ import starImage from "/images/star.png"
 
 function Card(props) {
     let badgeText
-    if (props.item.openSpots === 0) {
+    if (parseInt(props.item.openSpots) === 0) {
         badgeText = "SOLD OUT"
     }
     else if (props.item.location === "Online") {
         badgeText = "ONLINE"
     }
+    console.log(typeof props.item.openSpots)
     return (
         < div className="card" >
             {badgeText && <div className="card-badge">{badgeText}</div>}

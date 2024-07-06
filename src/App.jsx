@@ -19,6 +19,7 @@ function App() {
     location: "",
     openSpots: "",
   });
+  const [notification, setNotification] = React.useState("");
 
   React.useEffect(() => {
     const unsubscribe = onSnapshot(cardsCollection, function (snapshot) {
@@ -35,8 +36,20 @@ function App() {
     event.preventDefault();
     try {
       await addDoc(cardsCollection, formData);
+      setNotification("Card added successfully!");
+      setFormData({
+        title: "",
+        description: "",
+        price: "",
+        coverImg: "",
+        rating: "",
+        reviewCount: "",
+        location: "",
+        openSpots: "",
+      });
     } catch (error) {
       console.error("Error adding document: ", error);
+      setNotification("Failed to add card. Please try again.");
     }
   };
 
@@ -72,7 +85,9 @@ function App() {
             <Form
               formData={formData}
               handleChange={handleChange}
-              handleSubmit={handleSubmit} />
+              handleSubmit={handleSubmit}
+            />
+            {notification && <div className="notification">{notification}</div>}
           </Route>
         </Switch>
       </>
