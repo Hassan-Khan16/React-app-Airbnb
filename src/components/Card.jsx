@@ -12,7 +12,7 @@ function Card(props) {
     return (
         < div className="card" >
             {badgeText && <div className="card-badge">{badgeText}</div>}
-            <img src={`images/${props.item.coverImg}`} className="card-image" />
+            <img src={`${props.item.coverImg}`} className="card-image" />
             <div className="card-details">
                 <img className="card-star" src={starImage} />
                 <span>{props.item.rating}</span>

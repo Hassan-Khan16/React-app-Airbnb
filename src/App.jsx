@@ -30,7 +30,6 @@ function App() {
     })
     return unsubscribe
   }, [])
-  console.log(cards)
 
   const handleSubmit = async (event, formData) => {
     event.preventDefault();

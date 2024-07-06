@@ -1,14 +1,38 @@
 import React from "react"
+import { nanoid } from 'nanoid'
+import { imageDb } from "../../firebase"
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
 function Form(props) {
     const formData = props.formData
     const handleSubmit = props.handleSubmit
     const handleChange = props.handleChange
 
+    const [image, setImage] = React.useState(null)
+
+    async function handleImageUpload() {
+        if (image) {
+            const imageRef = ref(imageDb, `files/${nanoid()}`)
+            const metadata = {
+                contentType: image.type // Automatically sets the content type based on the file
+            }
+            await uploadBytes(imageRef, image, metadata)
+            const imageUrl = await getDownloadURL(imageRef)
+            return imageUrl
+        }
+        return ""
+    }
+
+    async function onSubmit(event) {
+        event.preventDefault()
+        const imageUrl = await handleImageUpload()
+        handleSubmit(event, { ...formData, coverImg: imageUrl })
+    }
+
     return (
         <div className="form-container">
             <h1>Add More Cards</h1>
-            <form onSubmit={(e) => handleSubmit(e, formData)}>
+            <form onSubmit={onSubmit}>
                 <input
                     type="text"
                     placeholder="Title"
@@ -33,20 +57,21 @@ function Form(props) {
                     required
                 />
                 <input
-                    type="text"
-                    placeholder="Cover Image"
-                    onChange={handleChange}
+                    type="file"
                     name="coverImg"
-                    value={formData.coverImg}
+                    accept="image/png, image/jpeg"
+                    onChange={(e) => setImage(e.target.files[0])}
                     required
-                /><input
+                />
+                <input
                     type="number"
                     placeholder="Rating"
                     onChange={handleChange}
                     name="rating"
                     value={formData.rating}
                     required
-                /><input
+                />
+                <input
                     type="number"
                     placeholder="Review Count"
                     onChange={handleChange}
