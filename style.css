@@ -156,3 +156,43 @@ body {
 .form-container button:hover {
     background-color: #45a049;
 }
+
+.footer {
+    display: flex;
+    background-color: #E7ECFF;
+    padding: 1rem 2.4rem;
+    justify-content: space-between;
+}
+
+.footer-left-div {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.footer-left-div>a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer-left-div>a:hover {
+    text-decoration: underline;
+}
+
+.footer-right-div {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon {
+    color: #000;
+    font-size: 12px;
+}
+
+.social-icon:hover {
+    color: #666;
+}

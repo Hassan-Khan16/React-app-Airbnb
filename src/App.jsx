@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer.jsx'
 import Hero from './components/Hero'
 import Card from './components/Card'
 import Form from './components/Form'
@@ -90,6 +91,7 @@ function App() {
             {notification && <div className="notification">{notification}</div>}
           </Route>
         </Switch>
+        <Footer />
       </>
     </Router>
   )
